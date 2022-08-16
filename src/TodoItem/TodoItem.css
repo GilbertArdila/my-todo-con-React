@@ -1,0 +1,41 @@
+.todoItem-li{
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+}
+.todoItem-li__span{
+    margin: 0 10px;
+    color: black;
+    align-self: center;
+}
+.todoItem-li__p{
+    margin: 0 10px;
+}
+.delete{
+    color: black;
+}
+.delete:hover{
+    transform: scale(1.6);
+    color: red;
+}
+.checked{
+    color: green;
+    
+}
+.checkedText{
+    text-decoration:line-through;
+}
+.checkedText::after{
+    content: '...REALIZADA';
+}
+@media(min-width:470px){
+    .todoItem-li{
+       flex-direction: row;
+        justify-content: center;
+        align-items: center;
+       
+    }
+    .todoItem-li__span{
+        align-self: flex-start;
+    }
+}

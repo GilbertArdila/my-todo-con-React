@@ -1,0 +1,12 @@
+.todoList-section{
+display: flex;
+justify-content: center;
+width: 100%;
+max-width: 400px;
+height: auto;
+}
+.todoList-section__ul{
+   display: flex;
+   flex-direction: column;
+    width: 100%;
+}

@@ -1,0 +1,14 @@
+.TodoModal-container{
+    width: calc(60%);
+    height: calc(60%);
+    position: absolute;
+    top: calc(5%);
+    left: calc(30%);
+    background-color: grey;
+    border: none;
+    border-radius: 10px;
+}
+
+.hidden{
+    display: none;
+}

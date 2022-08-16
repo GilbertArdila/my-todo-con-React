@@ -1,0 +1,28 @@
+.create_todoButton{
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    width:67px;
+    height: 67px;
+    margin: 10px auto;
+    padding: 5px;
+    border: none;
+    border-radius: 50px;
+    background-color: blue;
+    color: white;
+    font-size: 3rem;
+    transform: rotate(0);
+    transition: .3s ease;
+    animation: drop 1s ease-out ;
+
+    
+}
+.create_todoButton:hover{
+    transform: rotate(224deg);
+}
+
+
+@keyframes drop{
+    0%{transform: translateY(-600px);}
+    100%{transform: translateY(0)}
+}
