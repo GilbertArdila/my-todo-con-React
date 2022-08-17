@@ -1,11 +1,10 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 import './TodoForm.css';
-function TodoForm(){
+
+function TodoForm({addTodo,setOpenModal}){
     //creamos estado para el textArea para capturar el value
 const[newTodoValue,setNewTodoValue]=React.useState("");
 //usamos el contexto
-const{addTodo,setOpenModal}=React.useContext(TodoContext);
 
     const onCancel=()=>{
         //cerramos el modal

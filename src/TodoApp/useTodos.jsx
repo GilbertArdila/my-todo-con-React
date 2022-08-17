@@ -1,10 +1,9 @@
 import React from "react";
 import {useLocalStorage} from './useLocalStorage';
 
-//creamos un contexto
-const TodoContext=React.createContext()
 
-function TodoProvider(props){
+
+function useTodos(){
 
      //usamos la función para  localStorage y le pasamos por parámetro el nombre del item y el estado inicial, por defecto un array vacío y así creamos el estado para los todos. El item que nos devuelve la función son los todos el saveItem son los saveTodos que consumimos en este provider
   const {item:todos,
@@ -99,28 +98,20 @@ const addTodo=(text)=>{
 
 }
 
- return(
-//dentro del provider pasamos en el value las variables que el consumer va a poder consumir
-    <TodoContext.Provider value={{
-        totalTodos,
-        completedTodos,
-        addTodo,
-        searchValue,
-        setSearchValue,
-        searchedTodos,
-        completeTodo,
-        deleteTodo,
-       
-        loading,
-        error,
-        openModal,
-        setOpenModal
-    }}>
-        {/* importante el props.children */}
-        {props.children}
-        
-    </TodoContext.Provider>
- )
+ return{
+  totalTodos,
+  completedTodos,
+  addTodo,
+  searchValue,
+  setSearchValue,
+  searchedTodos,
+  completeTodo,
+  deleteTodo,
+  loading,
+  error,
+  openModal,
+  setOpenModal
+ };
 }
 
-export{TodoContext,TodoProvider}
+export{useTodos}
