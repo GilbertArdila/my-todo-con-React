@@ -6,9 +6,7 @@
  import { TodoItem } from "../TodoItem/TodoItem";
  import {CreateTodoButton} from '../CreateTodoButton/CreateTodoButton';
 import {TodoLoading} from '../TodoLoading/TodoLoading';
-import {TodoEmpty} from '../TodoEmpty/TodoEmpty';
-import { TodoError } from '../TodoError/TodoError';
-import {TodoNotFound} from '../TodoNotFound/TodoNotFound';
+import {TodoMessages} from '../TodoMessages/TodoMessages';
 import {TodoModal} from'../TodoModal/TodoModal';
 import {TodoForm} from '../TodoForm/TodoForm';
 import {TodoHeader} from'../TodoHeader/TodoHeader';
@@ -52,10 +50,19 @@ function App() {
 
       <TodoList>
 
-        {error && <TodoError />}
+        {error && <TodoMessages
+        src={'https://img.freepik.com/vector-gratis/ilustracion-vectorial-diseno-grafico_24908-54512.jpg?w=740&t=st=1660147323~exp=1660147923~hmac=9f4d0db5f954045fddb3b230e031b252212759d68b25bba3149a74123680a008'}
+        text={'¡Upps, parece que tenemos un error!, por favor intenta más tarde'}
+         />}
         {loading && <TodoLoading></TodoLoading>}
-        {(!loading && totalTodos === 0  ) && <TodoEmpty />}
-        {(!loading && searchedTodos.length===0 && totalTodos>0) && <TodoNotFound />}
+
+        {(!loading && totalTodos === 0  ) && <TodoMessages 
+        src={'https://img.freepik.com/vector-gratis/bombilla-realista_1284-4662.jpg?w=740&t=st=1660146863~exp=1660147463~hmac=80f06fd8b35565765bf8021ef3fd2191edffb09428d7e1afb9923d456fae39a3'}
+        text={'Vamos a crear nuestra primer tarea'}/>}
+        {(!loading && searchedTodos.length===0 && totalTodos>0) && <TodoMessages 
+        src={'https://img.freepik.com/vector-gratis/ups-error-404-ilustracion-concepto-robot-roto_114360-5529.jpg?w=740&t=st=1660147774~exp=1660148374~hmac=f93315c60d8ae0582443b30f4ae570ba3fe09deab1bcf1b2071517f575db1764'}
+        text={'Parece que no encontramos lo que estas buscando, por favor verifica tu busqueda'}
+        />}
         
         { }
         {/* para que esto sea leido le enviamos props.children en TodoItem.js */}
@@ -76,6 +83,7 @@ function App() {
           />
         ))}
       </TodoList>
+
 
   {/* si openModal es true se muestra el modal */}
       {openModal===true && (
