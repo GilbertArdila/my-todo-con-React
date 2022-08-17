@@ -11,6 +11,7 @@ import {TodoNotFound} from '../TodoNotFound/TodoNotFound';
 import {TodoContext} from '../TodoContext/index';
 import {TodoModal} from'../TodoModal/TodoModal';
 import {TodoForm} from '../TodoForm/TodoForm';
+import {TodoHeader} from'../TodoHeader/TodoHeader';
 
 function AppUI(){
  //Envolvemos los componentes en el provider para que puedan consumir todas las props que están en él
@@ -22,14 +23,24 @@ function AppUI(){
     deleteTodo,
     totalTodos,
     openModal,
-    setOpenModal
+    setOpenModal,
+    searchValue,
+    setSearchValue
+   
  } = React.useContext(TodoContext)
  
     return(
         <React.Fragment>
-      <TodoCounter />
+        <TodoHeader>
+          <TodoCounter
+            totalTodos={totalTodos}
+            completeTodo={completeTodo} />
 
-      <TodoSearch />
+          <TodoSearch
+            searchValue={searchValue}
+            setSearchValue={setSearchValue} />
+        </TodoHeader>
+     
 
 
       <TodoList>

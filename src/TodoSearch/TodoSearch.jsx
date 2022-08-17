@@ -1,10 +1,9 @@
 import React from "react";
 import { TodoContext } from "../TodoContext";
 import './TodoSearch.css';
-function TodoSearch(){
+function TodoSearch({searchValue,setSearchValue}){
   
-   //usamos el TodoContext para recibir las props
-const{searchValue,setSearchValue}=React.useContext(TodoContext);
+   
 
     /**creamos el listener para capturar el value del input */
     const onSearchValueChange=(event)=>{
