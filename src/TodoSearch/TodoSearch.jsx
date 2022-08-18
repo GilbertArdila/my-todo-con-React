@@ -1,7 +1,7 @@
 import React from "react";
 import './TodoSearch.css';
 
-function TodoSearch({searchValue,setSearchValue}){
+function TodoSearch({searchValue,setSearchValue,loading}){
   
    
 
@@ -17,7 +17,8 @@ function TodoSearch({searchValue,setSearchValue}){
          placeholder='Buscar'
         //  le pasamos como valor el estado con el searchValue
          value={searchValue}
-        onChange={onSearchValueChange}/>
+        onChange={onSearchValueChange}
+        disabled={loading}/>
     );
 }
 
