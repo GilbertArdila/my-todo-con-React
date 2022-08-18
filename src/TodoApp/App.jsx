@@ -36,6 +36,7 @@ function App() {
  
     return(
         <React.Fragment>
+
         <TodoHeader>
           <TodoCounter
             totalTodos={totalTodos}
@@ -46,43 +47,55 @@ function App() {
             setSearchValue={setSearchValue} />
         </TodoHeader>
      
+        <TodoList
+          error={error}
+          loading={loading}
+          totalTodos={totalTodos}
+          searchedTodos={searchedTodos}
 
 
-      <TodoList>
+          onError={() => <TodoMessages
+            src={'https://img.freepik.com/vector-gratis/ilustracion-vectorial-diseno-grafico_24908-54512.jpg?w=740&t=st=1660147323~exp=1660147923~hmac=9f4d0db5f954045fddb3b230e031b252212759d68b25bba3149a74123680a008'}
+            text={'¡Upps, parece que tenemos un error!, por favor intenta más tarde'}
+          />}
 
-        {error && <TodoMessages
-        src={'https://img.freepik.com/vector-gratis/ilustracion-vectorial-diseno-grafico_24908-54512.jpg?w=740&t=st=1660147323~exp=1660147923~hmac=9f4d0db5f954045fddb3b230e031b252212759d68b25bba3149a74123680a008'}
-        text={'¡Upps, parece que tenemos un error!, por favor intenta más tarde'}
-         />}
-        {loading && <TodoLoading></TodoLoading>}
 
-        {(!loading && totalTodos === 0  ) && <TodoMessages 
-        src={'https://img.freepik.com/vector-gratis/bombilla-realista_1284-4662.jpg?w=740&t=st=1660146863~exp=1660147463~hmac=80f06fd8b35565765bf8021ef3fd2191edffb09428d7e1afb9923d456fae39a3'}
-        text={'Vamos a crear nuestra primer tarea'}/>}
-        {(!loading && searchedTodos.length===0 && totalTodos>0) && <TodoMessages 
-        src={'https://img.freepik.com/vector-gratis/ups-error-404-ilustracion-concepto-robot-roto_114360-5529.jpg?w=740&t=st=1660147774~exp=1660148374~hmac=f93315c60d8ae0582443b30f4ae570ba3fe09deab1bcf1b2071517f575db1764'}
-        text={'Parece que no encontramos lo que estas buscando, por favor verifica tu busqueda'}
-        />}
+          onEmpty={() => <TodoMessages
+            src={'https://img.freepik.com/vector-gratis/bombilla-realista_1284-4662.jpg?w=740&t=st=1660146863~exp=1660147463~hmac=80f06fd8b35565765bf8021ef3fd2191edffb09428d7e1afb9923d456fae39a3'}
+            text={'Vamos a crear nuestra primer tarea'} />}
+
+          onNotFound={() => <TodoMessages
+            src={'https://img.freepik.com/vector-gratis/ups-error-404-ilustracion-concepto-robot-roto_114360-5529.jpg?w=740&t=st=1660147774~exp=1660148374~hmac=f93315c60d8ae0582443b30f4ae570ba3fe09deab1bcf1b2071517f575db1764'}
+            text={'Parece que no encontramos lo que estas buscando, por favor verifica tu busqueda'}
+          />}
+
+          onLoading={() => <TodoLoading />}
+
+          render={todo => (
+            <TodoItem
+              //enviamos las props al item
+              text={todo.text}
+              id={todo.id}
+              date={todo.date}
+              completed={todo.completed}
+              completedDate={todo.completedDate}
+              key={todo.id}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+
+            />
+          )
+          }
+
+        />
+
         
-        { }
-        {/* para que esto sea leido le enviamos props.children en TodoItem.js */}
 
-        {/* hacemos un map de los searchedTodos para mostrarlos */}
-        {searchedTodos.map(todo => (
-          <TodoItem
-            //enviamos las props al item
-            text={todo.text}
-            id={todo.id}
-            date={todo.date}
-            completed={todo.completed}
-            completedDate={todo.completedDate}
-            key={todo.id}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
+       
 
-          />
-        ))}
-      </TodoList>
+       
+
+      
 
 
   {/* si openModal es true se muestra el modal */}
