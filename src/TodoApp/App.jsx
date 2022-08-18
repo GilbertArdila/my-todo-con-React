@@ -23,7 +23,7 @@ function App() {
     loading,
     error,
     searchedTodos,
-    completeTodo,
+    completedTodos,
     deleteTodo,
     totalTodos,
     openModal,
@@ -40,7 +40,7 @@ function App() {
         <TodoHeader>
           <TodoCounter
             totalTodos={totalTodos}
-            completeTodo={completeTodo} />
+            completedTodos={completedTodos} />
 
           <TodoSearch
             searchValue={searchValue}
