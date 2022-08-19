@@ -11,7 +11,7 @@ import {TodoModal} from'../TodoModal/TodoModal';
 import {TodoForm} from '../TodoForm/TodoForm';
 import {TodoHeader} from'../TodoHeader/TodoHeader';
 import {useTodos} from './useTodos';
-import {ChangeAlertWithStorageListener} from '../ChangeAlert/ChangeAlert';
+import {ChangeAlert} from '../ChangeAlert/ChangeAlert';
  
 
 
@@ -94,14 +94,6 @@ function App() {
 
         />
 
-        
-
-       
-
-       
-
-      
-
 
   {/* si openModal es true se muestra el modal */}
       {openModal===true && (
@@ -117,7 +109,7 @@ function App() {
       //enviamos el setOpenModal para poder usarlo en el onClick del botón
        setOpenModal={setOpenModal}
       />
-      <ChangeAlertWithStorageListener
+      <ChangeAlert
       sincronize={sincronizeTodos}
       />
     </React.Fragment>

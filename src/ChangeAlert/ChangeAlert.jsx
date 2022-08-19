@@ -1,8 +1,11 @@
 import React from "react";
-import {withStorageListener} from './withStorageListener'
+import {useStorageListener} from './useStorageListener'
 import './ChangeAlert.css'
 //recibe los parametros cuando lo llamamos como wrappedComponent
-function ChangeAlert({show,toggleShow}){
+function ChangeAlert({sincronize}){
+    //recibimos las propiedades del custonHook que creamos
+    const {show,toggleShow}=useStorageListener(sincronize);
+
     if(show){
         return (
             <div className="changeAlert-container">
@@ -24,7 +27,6 @@ else{
 }
     }
     
-//aplicamos el HOC y le pasamos el changeAlert
-const ChangeAlertWithStorageListener=withStorageListener(ChangeAlert)
 
-export{ChangeAlertWithStorageListener}
+
+export{ChangeAlert}
