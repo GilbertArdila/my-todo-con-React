@@ -2,18 +2,30 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     width: 60vw;
     height: 80vh;
-    padding: 10px;
     top: calc(10%);
-    background-color: #d3aad2 ;
     border: 1px solid #b400ff;
     box-shadow:5px 6px 4px 0px #836c8d;
 }
+.changeAlert-container--up{
+    width: 100%;
+    height: 50%;
+    background-color: #d3aad2 ;
+    opacity: 0.6;
+}
+.changeAlert-container--down{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width: 100%;
+    height: 50%;
+    padding: 5px;
+    background-color: black;
+}
 .changeAlert-container__text{
     font-size: 3rem;
-    color: black;
+    color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 700;
     align-self: center;

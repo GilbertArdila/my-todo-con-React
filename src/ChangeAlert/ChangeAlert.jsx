@@ -6,12 +6,15 @@ function ChangeAlert({show,toggleShow}){
     if(show){
         return (
             <div className="changeAlert-container">
-                 <p className="changeAlert-container__text">Hay cambios que pueden modificar la información que estas viendo</p>
-            <button
-            className="changeAlert-container__button"
-            //cambiamos el setStorageChange
-             onClick={()=>toggleShow(false)}
-            >Recargar</button>
+                <div className="changeAlert-container--up"></div>
+                <div className="changeAlert-container--down">
+                    <p className="changeAlert-container__text">Hay cambios que pueden modificar la información que estas viendo</p>
+                    <button
+                        className="changeAlert-container__button"
+                        //cambiamos el setStorageChange
+                        onClick={() => toggleShow(false)}
+                    >Recargar</button></div>
+
             </div>
            
         )

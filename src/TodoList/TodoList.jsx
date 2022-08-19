@@ -10,7 +10,8 @@ function TodoList({error,onError,loading,onLoading,totalTodos,onEmpty,searchedTo
          {(!loading && searchedTodos.length===0 && totalTodos>0)&& onNotFound()}
          
         <ul className="todoList-section__ul">
-             {/* este children son las props que le enviamos en App.js los todos  */}{searchedTodos.map(todo=>render(todo))}
+             {/* este children son las props que le enviamos en App.js los todos  */}{(!loading && !error )
+             &&searchedTodos.map(todo=>render(todo))}
             {children}
         </ul>
        </section> 

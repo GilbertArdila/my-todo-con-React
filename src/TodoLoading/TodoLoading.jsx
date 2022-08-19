@@ -9,6 +9,8 @@ function TodoLoading(){
               <div className='TodoLoading-container__loader two'></div>
               <div className='TodoLoading-container__loader three'></div>
               <div className='TodoLoading-container__loader four'></div>
+              <div className='TodoLoading-container__loader five'></div>
+              
               
 
         </div>

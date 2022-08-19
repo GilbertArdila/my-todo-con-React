@@ -4,7 +4,7 @@
     height: 60vh;
     position: relative;
     margin: 0 auto;
-    background-color: darkgrey;
+   
     z-index: 10;
    
 }
@@ -13,37 +13,43 @@
     top: calc(-85px);
     left: calc(2%);
     width: 90%;
+    max-width: 500px;
     height: 40px;
     margin: 0 auto;
-    background-color: rgb(109, 109, 104);;
+    background-color: rgb(109, 109, 104);
 }
 .TodoLoading-container__loader{
   position: absolute;
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background-color: yellow;
+  background-color:  rgb(109, 109, 104);
   animation: load .3s infinite;
 }
 .one{
-   top:72px;
-   left: 246px;
+   top:calc(20%);
+   left: calc(25%);
    animation-delay: .1s;
 }
 .two{
-    top:147px;
-    left: 246px;
+   top:calc(20%);
+   left: calc(40%);
     animation-delay: .2s;
  }
  .three{
-    top:148px;
-    left: 116px;
+   top:calc(40%);
+   left: calc(25%);
     animation-delay: .3s;
  }
  .four{
-    top:72px;
-    left: 116px;
+   top:calc(40%);
+   left: calc(40%);
     animation-delay: .4s;
+ }
+ .five{
+   top:calc(30%);
+   left: calc(32%);
+    animation-delay: .1s;
  }
 
  @keyframes load{
