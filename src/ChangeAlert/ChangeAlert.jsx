@@ -1,9 +1,9 @@
 import React from "react";
 import {useStorageListener} from './useStorageListener'
 import './ChangeAlert.css'
-//recibe los parametros cuando lo llamamos como wrappedComponent
+//lo recibimos de App.jsx
 function ChangeAlert({sincronize}){
-    //recibimos las propiedades del custonHook que creamos
+   
     const {show,toggleShow}=useStorageListener(sincronize);
 
     if(show){

@@ -85,7 +85,7 @@ function App() {
               completed={todo.completed}
               completedDate={todo.completedDate}
               key={todo.id}
-              onComplete={() => completeTodo(todo.text)}
+              onComplete={() => completedTodos(todo.text)}
               onDelete={() => deleteTodo(todo.text)}
 
             />
@@ -109,6 +109,7 @@ function App() {
       //enviamos el setOpenModal para poder usarlo en el onClick del botón
        setOpenModal={setOpenModal}
       />
+      {/* este sincronize esta en localStorage.jsx y lo que hace es recargar la pagina y poner el setSincronizedItem en false para que el useEffect se recargue y  */}
       <ChangeAlert
       sincronize={sincronizeTodos}
       />
