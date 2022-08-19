@@ -24,6 +24,7 @@ function App() {
     error,
     searchedTodos,
     completedTodos,
+   completeTodo,
     deleteTodo,
     totalTodos,
     openModal,
@@ -85,7 +86,7 @@ function App() {
               completed={todo.completed}
               completedDate={todo.completedDate}
               key={todo.id}
-              onComplete={() => completedTodos(todo.text)}
+              onComplete={() => completeTodo(todo.text)}
               onDelete={() => deleteTodo(todo.text)}
 
             />
