@@ -11,7 +11,7 @@ import {TodoModal} from'../TodoModal/TodoModal';
 import {TodoForm} from '../TodoForm/TodoForm';
 import {TodoHeader} from'../TodoHeader/TodoHeader';
 import {useTodos} from './useTodos';
-
+import {ChangeAlertWithStorageListener} from '../ChangeAlert/ChangeAlert';
  
 
 
@@ -30,7 +30,8 @@ function App() {
     setOpenModal,
     searchValue,
     setSearchValue,
-    addTodo
+    addTodo,
+    sincronizeTodos
    
  } = useTodos();
  
@@ -116,7 +117,9 @@ function App() {
       //enviamos el setOpenModal para poder usarlo en el onClick del botón
        setOpenModal={setOpenModal}
       />
-
+      <ChangeAlertWithStorageListener
+      sincronize={sincronizeTodos}
+      />
     </React.Fragment>
     )
 }

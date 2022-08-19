@@ -14,6 +14,7 @@
     transform: rotate(0);
     transition: .3s ease;
     animation: drop 1s ease-out ;
+    box-shadow: 4px 5px 5px #005affd1;
 
     
 }

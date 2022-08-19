@@ -9,7 +9,9 @@ function useTodos(){
   const {item:todos,
     saveItem:saveTodos,
     loading,
-  error}=useLocalStorage('TODOS_V1',[]);
+  error,
+  sincronize:sincronizeTodos
+}=useLocalStorage('TODOS_V1',[]);
 
 
 
@@ -110,7 +112,8 @@ const addTodo=(text)=>{
   loading,
   error,
   openModal,
-  setOpenModal
+  setOpenModal,
+  sincronizeTodos
  };
 }
 

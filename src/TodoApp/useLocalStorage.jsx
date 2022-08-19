@@ -6,6 +6,7 @@ function useLocalStorage(itemName,initialValue){
   const [item,setItem]=React.useState(initialValue);
   const [loading,setLoading]=React.useState(true)
   const [error,setError]=React.useState(false)
+  const [sincronizedItem,setSincronizedItem]=React.useState(true)
 /********************************************************* */
 
 //creamos un useEffect y simulamos un retraso***************
@@ -28,12 +29,13 @@ function useLocalStorage(itemName,initialValue){
   //cambiamos el estado del item por el parsedItem y el estado del loading a false
   setItem(parsedItem);
   setLoading(false)
+  setSincronizedItem(true)
         } catch (error) {
           setError(true) 
         }
   
       },1000)
-   })
+   },[sincronizedItem])
 
   
    
@@ -51,11 +53,17 @@ function useLocalStorage(itemName,initialValue){
     
    }
    
+   //función para vigilar la sincronización de los cambios
+   const sincronize=()=>{
+     setLoading(true)
+     setSincronizedItem(false)
+   }
    return {
      item,
      saveItem,
      loading,
-     error
+     error,
+     sincronize
    }
    
    }
