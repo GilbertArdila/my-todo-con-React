@@ -26,7 +26,9 @@ function App() {
     error,
     searchedTodos,
     completedTodos,
-    completeTodo,
+
+   completeTodo,
+
     deleteTodo,
     totalTodos,
     openModal,
