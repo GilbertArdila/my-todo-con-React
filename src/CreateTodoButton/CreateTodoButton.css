@@ -1,7 +1,7 @@
 .create_todoButton{
     position: fixed;
-    bottom: 5px;
-    right: 5px;
+    bottom: calc(10% - 32px);
+    left: calc(80% - 32px);
     width:67px;
     height: 67px;
     margin: 10px auto;

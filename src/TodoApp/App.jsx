@@ -12,7 +12,9 @@ import {TodoForm} from '../TodoForm/TodoForm';
 import {TodoHeader} from'../TodoHeader/TodoHeader';
 import {useTodos} from './useTodos';
 import {ChangeAlert} from '../ChangeAlert/ChangeAlert';
- 
+ import emptyImg from '../Assets/empty.webp'
+ import errorImg from '../Assets/error.webp'
+ import notFoundImg from '../Assets/notFound.webp'
 
 
 
@@ -24,6 +26,7 @@ function App() {
     error,
     searchedTodos,
     completedTodos,
+    completeTodo,
     deleteTodo,
     totalTodos,
     openModal,
@@ -60,17 +63,17 @@ function App() {
 
 
           onError={() => <TodoMessages
-            src={'https://img.freepik.com/vector-gratis/ilustracion-vectorial-diseno-grafico_24908-54512.jpg?w=740&t=st=1660147323~exp=1660147923~hmac=9f4d0db5f954045fddb3b230e031b252212759d68b25bba3149a74123680a008'}
+            src={errorImg}
             text={'¡Upps, parece que tenemos un error!, por favor intenta más tarde'}
           />}
 
 
           onEmpty={() => <TodoMessages
-            src={'https://img.freepik.com/vector-gratis/bombilla-realista_1284-4662.jpg?w=740&t=st=1660146863~exp=1660147463~hmac=80f06fd8b35565765bf8021ef3fd2191edffb09428d7e1afb9923d456fae39a3'}
+            src={emptyImg}
             text={'Vamos a crear nuestra primer tarea'} />}
 
           onNotFound={() => <TodoMessages
-            src={'https://img.freepik.com/vector-gratis/ups-error-404-ilustracion-concepto-robot-roto_114360-5529.jpg?w=740&t=st=1660147774~exp=1660148374~hmac=f93315c60d8ae0582443b30f4ae570ba3fe09deab1bcf1b2071517f575db1764'}
+            src={notFoundImg}
             text={'Parece que no encontramos lo que estas buscando, por favor verifica tu busqueda'}
           />}
 
@@ -85,7 +88,7 @@ function App() {
               completed={todo.completed}
               completedDate={todo.completedDate}
               key={todo.id}
-              onComplete={() => completedTodos(todo.text)}
+              onComplete={() => completeTodo(todo.text)}
               onDelete={() => deleteTodo(todo.text)}
 
             />

@@ -68,6 +68,7 @@ const deleteTodo=(texto)=>{
     saveTodos(newTodos);
 
 }
+
 const addTodo=(text)=>{
   //capturamos la fecha decreación del TODO y la pasamos a Json para hacer un split
   let date=new Date

@@ -3,7 +3,7 @@ import {useStorageListener} from './useStorageListener'
 import './ChangeAlert.css'
 //lo recibimos de App.jsx
 function ChangeAlert({sincronize}){
-   
+   //llamamos las propiedades desde el customHook
     const {show,toggleShow}=useStorageListener(sincronize);
 
     if(show){

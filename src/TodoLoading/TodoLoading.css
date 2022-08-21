@@ -12,7 +12,7 @@
     position: absolute;
     top: calc(-85px);
     left: calc(2%);
-    width: 90%;
+    width: calc(90%);
     max-width: 500px;
     height: 40px;
     margin: 0 auto;
@@ -27,27 +27,27 @@
   animation: load .3s infinite;
 }
 .one{
-   top:calc(20%);
+   top:calc(40% - 45px);
    left: calc(25%);
    animation-delay: .1s;
 }
 .two{
-   top:calc(20%);
+   top:calc(40% - 45px);
    left: calc(40%);
     animation-delay: .2s;
  }
  .three{
-   top:calc(40%);
+   top:calc(60% - 45px);
    left: calc(25%);
     animation-delay: .3s;
  }
  .four{
-   top:calc(40%);
+   top:calc(60% - 45px);
    left: calc(40%);
     animation-delay: .4s;
  }
  .five{
-   top:calc(30%);
+   top:calc(50% - 45px);
    left: calc(32%);
     animation-delay: .1s;
  }

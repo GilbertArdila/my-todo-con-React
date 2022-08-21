@@ -1,6 +1,6 @@
 import React from "react";
 
-
+//customHook
 function useStorageListener
     (sincronize) {
 
@@ -12,7 +12,7 @@ function useStorageListener
             setStorageChange(true)
         }
     })
-    
+
     const toggleShow = () => {
         sincronize()
         setStorageChange(false)

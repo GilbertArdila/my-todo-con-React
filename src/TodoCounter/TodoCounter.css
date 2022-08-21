@@ -1,6 +1,7 @@
 .TodoCounter{
     text-align: center;
     margin: 10px auto;
+    margin-top: 50px;
 }
 .TodoCounter--loading{
     opacity: 0.2;
