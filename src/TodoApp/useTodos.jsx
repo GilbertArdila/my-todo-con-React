@@ -98,6 +98,7 @@ const addTodo=(text)=>{
    //actualizamos el estado con el nuevo array
    saveTodos(newTodos);
   
+  
 
 }
 
@@ -114,7 +115,8 @@ const addTodo=(text)=>{
   error,
   openModal,
   setOpenModal,
-  sincronizeTodos
+  sincronizeTodos,
+  
  };
 }
 

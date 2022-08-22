@@ -1,7 +1,7 @@
 import React from "react";
 import './TodoSearch.css';
 
-function TodoSearch({searchValue,setSearchValue,loading}){
+function TodoSearch({searchValue,setSearchValue,loading,language}){
   
    
 
@@ -14,7 +14,8 @@ function TodoSearch({searchValue,setSearchValue,loading}){
 
     return(
         <input
-         placeholder='Buscar'
+        
+         placeholder={`${language==='spanish' && 'Buscar' || 'Search'}`}
         //  le pasamos como valor el estado con el searchValue
          value={searchValue}
         onChange={onSearchValueChange}

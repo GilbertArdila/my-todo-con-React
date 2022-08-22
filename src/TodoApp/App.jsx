@@ -36,10 +36,18 @@ function App() {
     searchValue,
     setSearchValue,
     addTodo,
-    sincronizeTodos
+    sincronizeTodos,
+ 
    
  } = useTodos();
- 
+  //capturamos el lenguaje del navegador del cliente
+let language;
+if(window.clientInformation.language.includes('es')){
+  language='spanish'
+}else{
+  language='english'
+}
+   
     return(
         <React.Fragment>
 
@@ -48,12 +56,14 @@ function App() {
             totalTodos={totalTodos}
             completedTodos={completedTodos}
             loading={loading}
+            language={language}
             />
 
           <TodoSearch
             searchValue={searchValue}
             setSearchValue={setSearchValue}
             loading={loading}
+            language={language}
             />
         </TodoHeader>
      
@@ -62,21 +72,22 @@ function App() {
           loading={loading}
           totalTodos={totalTodos}
           searchedTodos={searchedTodos}
+          
 
 
           onError={() => <TodoMessages
             src={errorImg}
-            text={'¡Upps, parece que tenemos un error!, por favor intenta más tarde'}
+            text={`${language==='spanish'&&'¡Upps, parece que tenemos un error!, por favor intenta más tarde'|| 'Sorry, we have an error right now, please retry later'} `}
           />}
 
 
           onEmpty={() => <TodoMessages
             src={emptyImg}
-            text={'Vamos a crear nuestra primer tarea'} />}
+            text={`${language==='spanish'&&'Vamos a crear nuestra primer tarea'||'Lets do our first task!!'}`} />}
 
           onNotFound={() => <TodoMessages
             src={notFoundImg}
-            text={'Parece que no encontramos lo que estas buscando, por favor verifica tu busqueda'}
+            text={`${language==='spanish'&&'Parece que no encontramos lo que estas buscando, por favor verifica tu busqueda'||'There are no coincidences, please check your searching'}`}
           />}
 
           onLoading={() => <TodoLoading />}
@@ -106,6 +117,7 @@ function App() {
          <TodoForm
           addTodo={addTodo}
           setOpenModal={setOpenModal}
+          language={language}
          />
         </TodoModal>
       )}
@@ -113,10 +125,12 @@ function App() {
       <CreateTodoButton
       //enviamos el setOpenModal para poder usarlo en el onClick del botón
        setOpenModal={setOpenModal}
+       
       />
       {/* este sincronize esta en localStorage.jsx y lo que hace es recargar la pagina y poner el setSincronizedItem en false para que el useEffect se recargue y  */}
       <ChangeAlert
       sincronize={sincronizeTodos}
+      language={language}
       />
     </React.Fragment>
     )

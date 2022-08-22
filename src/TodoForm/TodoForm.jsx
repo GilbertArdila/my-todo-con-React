@@ -1,7 +1,7 @@
 import React from "react";
 import './TodoForm.css';
 
-function TodoForm({addTodo,setOpenModal}){
+function TodoForm({addTodo,setOpenModal,language}){
     //creamos estado para el textArea para capturar el value
 const[newTodoValue,setNewTodoValue]=React.useState("");
 //usamos el contexto
@@ -26,7 +26,16 @@ const[newTodoValue,setNewTodoValue]=React.useState("");
         setOpenModal(false);
 
     }
-    
+    //creamos variables para el texto de los botónes
+    let Crear;
+    let Cerrar;
+    if(language==='spanish'){
+        Crear='Crear'
+        Cerrar='Cerrar'
+    }else{
+        Crear='Create'
+        Cerrar='Close'
+    }
     return(
         <form className="TodoForm-container" 
         onSubmit={onSubmit}
@@ -37,16 +46,16 @@ const[newTodoValue,setNewTodoValue]=React.useState("");
            <textarea 
            value={newTodoValue}
            onChange={onChange}
-           placeholder="Escribe aquí..."
+           placeholder={`${language==='spanish'&&"Escribe aquí..."|| 'Text here...'}`}
            className="TodoForm-container__text"/>
 
            <div className="TodoForm-container__buttonsContainer">
 
                <button className="createButton button" type="submit"
-               >Crear</button>
+               >{Crear}</button>
 
                <button className="closeButton button" type="button"
-                onClick={()=>onCancel()}>Cerrar</button>
+                onClick={()=>onCancel()}>{Cerrar}</button>
 
            </div>
         </form>
